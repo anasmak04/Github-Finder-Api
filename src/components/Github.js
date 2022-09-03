@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./github.css"
 export default function Github() {
   const [username, setUsername] = useState("");
   const [item, setItem] = useState([]);
@@ -21,20 +22,32 @@ export default function Github() {
 
   const input = (e) => setUsername(e.target.value);
   return (
-    <div>
+    <div class="container ">
       <form onSubmit={FromEvent}>
-        <label>Enter github usename</label>
-        <input onChange={input} type="text"></input>
-        <button>submit</button>
+        <div class="input-group mb-3">
+          <input
+            onChange={input}
+            type="text"
+            class="form-control"
+            placeholder="Enter github usename"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              Button
+            </button>
+          </div>
+        </div>
       </form>
 
-      <h1>username : {item.name}</h1>
-      <h1>picture : {item.avatar_url}</h1>
-      <h1>picture : {item.url}</h1>
-      <h1>picture : {item.company}</h1>
-      <h1>picture : {item.followers}</h1>
-      <h1>picture : {item.following}</h1>
-      <h1>picture : {item.public_repos}</h1>
+      <pre>username : {item.name}</pre>
+      <pre>picture : {item.avatar_url}</pre>
+      <pre>picture : {item.url}</pre>
+      <pre>company : {item.company}</pre>
+      <pre>followers : {item.followers}</pre>
+      <pre>following : {item.following}</pre>
+      <pre>public_repos : {item.public_repos}</pre>
     </div>
   );
 }
